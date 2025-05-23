@@ -4,22 +4,22 @@ using System.Collections;
 public class Lazer : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 8.0f;
+    private float _speed = 8.0f; // defines the spped of the lazer  
     void Start()
     {
        Vector3 pos = transform.position;
-       pos.y -= 0.7f;
+       pos.y -= 0.7f; 
        transform.position = pos;
     }
 
 
     void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * _speed);
+        transform.Translate(Vector3.up * Time.deltaTime * _speed); // with this code, lazer goes up
 
-        if (transform.position.y > 10.0f)
+        if (transform.position.y > 10.0f) // till where the lazer will go 
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject); // destroyes the clone
         }
     }
 }
