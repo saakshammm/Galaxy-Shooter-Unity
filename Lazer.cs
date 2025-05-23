@@ -5,13 +5,6 @@ public class Lazer : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 8.0f; // defines the speed of the lazer  
-    void Start()
-    {
-       Vector3 pos = transform.position;
-       pos.y -= 0.7f; 
-       transform.position = pos;
-    }
-
 
     void Update()
     {
