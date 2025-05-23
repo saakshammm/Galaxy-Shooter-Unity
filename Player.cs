@@ -8,9 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _lazerPrefab;
     [SerializeField]
-    private float _fireRate = 0.1f; 
+    private float _fireRate = 0.1f;
     [SerializeField]
-    private float _canFire = -1f; 
+    private float _canFire = -1f;
 
     void Start()
     {
@@ -21,13 +21,12 @@ public class Player : MonoBehaviour
     {
         CalculateMovement(); // calls the movement function
 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire) 
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
-            _canFire = Time.time + _fireRate; // delay
-            Instantiate(_lazerPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity); // what happenes when space key is  pressed
+            FireLazer();
         }
     }
-    
+
     void CalculateMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal"); // takes the horizontal input
@@ -42,13 +41,19 @@ public class Player : MonoBehaviour
         // loop for the x value. the horizontal values.
         if (transform.position.x <= -11.3f)
         {
-            transform.position = new Vector3(11.3f, transform.position.y, 0); 
+            transform.position = new Vector3(11.3f, transform.position.y, 0);
         }
 
         else if (transform.position.x >= 11.3f)
         {
             transform.position = new Vector3(-11.3f, transform.position.y, 0);
         }
+    }
+
+    void FireLazer()
+    {
+        _canFire = Time.time + _fireRate; // delay
+        Instantiate(_lazerPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity); // what happenes when space key is  pressed
     }
 
 }
