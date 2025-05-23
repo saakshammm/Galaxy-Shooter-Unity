@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, 0, 0); // sets the initial position
     }
 
     void Update()
@@ -33,15 +33,16 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal"); // takes the horizontal input
         float verticalInput = Input.GetAxis("Vertical"); // takes the vertical input
 
-        transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime); 
-        transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
+        transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime); // translates for horizontal
+        transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime); // translates for vertical
 
 
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.9f, 0), 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.9f, 0), 0); // clamps the value of y bw -3.9f and 0
 
+        // loop for the x value. the horizontal values.
         if (transform.position.x <= -11.3f)
         {
-            transform.position = new Vector3(11.3f, transform.position.y, 0);
+            transform.position = new Vector3(11.3f, transform.position.y, 0); 
         }
 
         else if (transform.position.x >= 11.3f)
