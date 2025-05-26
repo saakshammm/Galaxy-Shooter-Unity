@@ -4,13 +4,13 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    public float _speed = 5.3f; // speed of the space ship
+    public float _speed = 5.7f; // speed of the space ship
     [SerializeField]
     private GameObject _lazerPrefab;
     [SerializeField]
     private float _fireRate = 0.1f;
     [SerializeField]
-    private float _canFire = -1f;
+    private float _canFire = -0.8f;
 
     void Start()
     {
